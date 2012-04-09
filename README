@@ -1,0 +1,101 @@
+JLess Extension for Yii
+=======================
+
+JLess is a extension to easily manage less files in Yii applications
+
+
+Author
+-------
+
+**João Parreira**
+
+
+Version
+-------
+0.1 Initial Release
+
+
+Requirements
+------------
+
+Yii 1.1.8
+PHP >= 5.3
+
+
+How to Use
+----------
+
+--Copy
+----Copy files under extension folder
+
+--Configuration
+----config/main.php
+
+    // application components
+    'components' => array(
+        'clientScript' => array(
+            'class' => 'ext.JLess.JLessCClientScript',		//Extend CClientScript
+            'jLessOptions' => array(
+                'vendor' => 'agar', //Less-(leafo or agar)
+                'destination'=>'/css',
+                'forceCompile'=>false,  //Enables force compiling, Atention file will always be compiled when it had changes
+
+                //You can include options direclty to the compiler
+                //This options are related directly with the compiler that you choose
+                'compiler'=>array(
+                    'compress'=>true,
+                ),
+            ),
+        ),
+
+--Usage
+----Use it like you use to include a css file
+
+Yii::app()->clientScript->registerLessFile(Yii::app()->request->baseUrl . '/less/mystyles.less');
+If you want to save in a generic place defined in config
+
+or
+
+Yii::app()->clientScript->registerLessFile(Yii::app()->theme->baseUrl . '/less/mystyles.less','',Yii::app()->theme->baseUrl.'/css/mystyles.css');
+If you want to save in a specific place like under a folder in a theme
+
+
+
+
+
+Versioning
+----------
+
+For transparency and insight into our release cycle, and for striving to maintain backward compatibility, Bootstrap will be maintained under the Semantic Versioning guidelines as much as possible.
+
+Releases will be numbered with the follow format:
+
+`<major>.<minor>.<patch>`
+
+And constructed with the following guidelines:
+
+* Breaking backward compatibility bumps the major
+* New additions without breaking backward compatibility bumps the minor
+* Bug fixes and misc changes bump the patch
+
+For more information on SemVer, please visit http://semver.org/.
+
+
+Inspiration
+-----------
+
+This extension is inspired in LessCompiler made by Christoffer Niska <ChristofferNiska@gmail.com>
+
+
+Copyright and license
+---------------------
+
+Copyright (c) 2012, João Parreira
+All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
