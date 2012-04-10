@@ -67,7 +67,7 @@ class JLessCompiler {
      */
     private function hasChanges() {
         if (!file_exists($this->originalFullPath)) //If original file don't exist it should do nothing in here
-            throw new CException(__CLASS__ . ': Failed to compile less file. Source path does not exist.');
+            throw new \CException(__CLASS__ . ': Failed to compile less file. Source path does not exist.');
         if (!file_exists($this->destinationFullPath))   //If file don't exist it should be force compiled
             return true;
         else {
@@ -89,7 +89,7 @@ class JLessCompiler {
             case 'string':
                 return $this->cssString;
             default:
-                throw new CException(__CLASS__ . ': Invalid type option.');
+                throw new \CException(__CLASS__ . ': Invalid type option.');
                 break;
         }
     }

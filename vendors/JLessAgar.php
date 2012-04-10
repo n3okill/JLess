@@ -50,7 +50,7 @@ class JLessAgar extends \JLess\JLessCompiler {
             try {
                 $this->compiler->parseFile($this->originalFullPath);
             } catch (\Less\Exception\ParserException $ex) {
-                throw new CException(__CLASS__ . ': Failed to parse less file. "' . $ex->getMessage() . '".');
+                throw new \CException(__CLASS__ . ': Failed to parse less file. "' . $ex->getMessage() . '".');
             }
             file_put_contents($this->destinationFullPath, $this->compiler->getCss());
         }
@@ -66,7 +66,7 @@ class JLessAgar extends \JLess\JLessCompiler {
             $this->compiler->parse($this->options['string']);
             $this->cssString = $this->compiler->getCss();
         } catch (\Less\Exception\ParserException $ex) {
-            throw new CException(__CLASS__ . ': Failed to parse less string. "' . $ex->getMessage() . '".');
+            throw new \CException(__CLASS__ . ': Failed to parse less string. "' . $ex->getMessage() . '".');
         }
     }
 

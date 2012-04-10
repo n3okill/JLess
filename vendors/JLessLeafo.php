@@ -43,8 +43,8 @@ class JLessLeafo extends \JLess\JLessCompiler {
         if (parent::compileFile()) {
             try {
                 file_put_contents($this->destinationFullPath, $this->compiler->parse());
-            } catch (Exception $ex) {
-                throw new CException(__CLASS__ . ': Failed to parse less file. "' . $ex->getMessage() . '".');
+            } catch (\Exception $ex) {
+                throw new \CException(__CLASS__ . ': Failed to parse less file. "' . $ex->getMessage() . '".');
             }
         }
     }
@@ -56,8 +56,8 @@ class JLessLeafo extends \JLess\JLessCompiler {
         parent::compileString();
         try {
             $this->cssString = $this->compiler->parse($this->options['string']);
-        } catch (Exception $ex) {
-            throw new CException(__CLASS__ . ': Failed to parse less file. "' . $ex->getMessage() . '".');
+        } catch (\Exception $ex) {
+            throw new \CException(__CLASS__ . ': Failed to parse less file. "' . $ex->getMessage() . '".');
         }
     }
 
