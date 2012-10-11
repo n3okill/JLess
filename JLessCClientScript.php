@@ -26,6 +26,7 @@ class JLessCClientScript extends CClientScript {
 
     //Default options to run the parser
     private $_jLessOptions = array(
+        'subfolder' => true,
         'vendor' => 'leafo',
         'leafo' => array(
             'class' => 'JLessLeafo'

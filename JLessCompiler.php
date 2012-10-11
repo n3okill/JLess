@@ -21,7 +21,7 @@ class JLessCompiler {
     protected $destinationFullPath;     //Full path to resultant file
     protected $cssString;               //String with css code parsed
     protected $compiler;                //Compiler Handler
-    private $_options = array(//Default options to all compilers
+    private $_options = array(          //Default options to all compilers
         'forceCompile' => true,
     );
     protected $options;
@@ -31,7 +31,7 @@ class JLessCompiler {
         //Detects if is loaded a less file and define the path's necessary
         if ($this->options['type'] == 'file') {
             $this->originalPath = $this->options['url'];
-            $this->originalFullPath = dirname(\Yii::getPathOfAlias('webroot')) . $this->originalPath;
+            $this->originalFullPath = $this->options['subfolder'] ? dirname(\Yii::getPathOfAlias('webroot')) . $this->originalPath : \Yii::getPathOfAlias('webroot') . $this->originalPath;
             $nomeFicheiro = pathinfo($this->originalPath, PATHINFO_FILENAME);
             if ($this->options['path'] != "")
                 $this->destinationPath = $this->options["path"];
@@ -41,7 +41,7 @@ class JLessCompiler {
                 else
                     $this->destinationPath = \Yii::app()->getRequest()->getBaseUrl() . $this->options["destination"] . '/' . $nomeFicheiro . '.css';
             }
-            $this->destinationFullPath = dirname(\Yii::getPathOfAlias('webroot')) . $this->destinationPath;
+            $this->destinationFullPath = $this->options['subfolder'] ? dirname(\Yii::getPathOfAlias('webroot')) . $this->destinationPath : \Yii::getPathOfAlias('webroot') . $this->destinationPath;
         }
     }
 
