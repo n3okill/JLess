@@ -39,7 +39,7 @@ How to Use
                 'vendor' => 'agar', //Less-(leafo or agar)
                 'destination'=>'/css',
                 'forceCompile'=>false,  //Enables force compiling, Atention file will always be compiled when it had changes
-
+                'subfolder'=>true,      //Option necessary for loading the files, we need to know if the application is inside one subfolder or not (true (default) or false)
                 //You can include options direclty to the compiler
                 //This options are related directly with the compiler that you choose
                 'compiler'=>array(
